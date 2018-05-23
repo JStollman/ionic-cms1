@@ -16,6 +16,7 @@ import { UsersPage } from '../pages/users/users';
   declarations: [
     MyApp,
     HomePage,
+    UsersPage,
     ListPage
   ],
   imports: [

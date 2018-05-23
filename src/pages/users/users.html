@@ -14,5 +14,7 @@
 
 
 <ion-content padding>
-
+  <ion-list *ngIf="users">
+    <ion-item *ngFor="let user of users">{{ user.username }}</ion-item>
+  </ion-list>
 </ion-content>
