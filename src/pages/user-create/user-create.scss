@@ -1,0 +1,43 @@
+page-user-create {
+
+  .alert{
+    text-align: center;
+
+  }
+
+  .alert-error{
+    color: #fff;
+    background: #f53d3d;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .input-wrapper{
+    border-bottom: 1px solid #ccc;
+
+  }
+
+  .has-error .input-wrapper,
+  .has-error .input-wrapper .label.label-md{
+    color: #f53d3d;
+  }
+
+  .has-error .input-wrapper{
+    border-bottom: 3px solid #f53d3d;
+  }
+
+
+  .input-has-focus .input-wrapper,
+  .input-has-focus .input-wrapper .label.label-md{
+    color: #4d8cf4;
+  }
+
+  .input-has-focus .input-wrapper{
+    color: #4d8cf4;
+    border-bottom: 3px solid #4d8cf4;
+  }
+
+  .no-lines .input-wrapper{
+    border-bottom: none;
+  }
+}

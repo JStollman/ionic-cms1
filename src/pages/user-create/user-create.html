@@ -1,0 +1,53 @@
+
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Create a User</ion-title>
+    </ion-navbar>
+
+  </ion-header>
+
+
+  <ion-content padding>
+    <form [formGroup]="user" (ngSubmit)="createUser()">
+      <ion-list>
+
+        <ion-item no-lines class="hide"></ion-item>
+
+        <ion-list-header no-lines class="alert alert-error no-lines" *ngIf="errorMessage">{{ errorMessage }}</ion-list-header>
+
+        <ion-item no-lines [ngClass]="{'has-error':errors.username}">
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text" formControlName="username"></ion-input>
+        </ion-item>
+
+        <ion-item no-lines class="has-error no-lines" *ngIf="errors.username">{{errors.username.message}}</ion-item>
+
+        <ion-item no-lines [ngClass]="{'has-error':errors.email}">
+          <ion-label floating>Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item no-lines class="has-error no-lines" *ngIf="errors.email">{{errors.email.message}}</ion-item>
+
+        <ion-item no-lines >
+          <ion-label floating>First Name</ion-label>
+          <ion-input type="text" formControlName="first_name"></ion-input>
+        </ion-item>
+
+        <ion-item no-lines class="has-error no-lines" *ngIf="errors.first_name">{{errors.first_name.message}}</ion-item>
+
+        <ion-item no-lines >
+          <ion-label floating>Last Name</ion-label>
+          <ion-input type="text" formControlName="last_name"></ion-input>
+        </ion-item>
+
+        <ion-item no-lines class="error no-lines" *ngIf="errors.last_name">{{errors.last_name.message}}</ion-item>
+
+        <ion-item no-lines class="hide"></ion-item>
+      </ion-list>
+
+      <button ion-button float-right type="submit">Submit</button>
+
+    </form>
+  </ion-content>
