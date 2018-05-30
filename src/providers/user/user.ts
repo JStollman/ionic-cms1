@@ -28,8 +28,8 @@ export class UserProvider {
     return this.http.post<User>(this.url, user, httpOptions);
   }
 
-  public updateUser(){
-    console.log('Update User');
+  public editUser(user: User): Observable<User>{
+    return this.http.put<User>(this.url, user, httpOptions);
   }
 
   public deleteUser(){

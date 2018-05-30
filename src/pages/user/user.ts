@@ -5,6 +5,8 @@ import {Md5} from 'ts-md5/dist/md5';
 
 import { UserProvider } from '../../providers/user/user';
 import { User } from '../../models/user/user';
+import { UserEditPage } from '../user-edit/user-edit';
+
 
 @IonicPage()
 @Component({
@@ -35,5 +37,7 @@ export class UserPage {
         }
       );
   }
-
+  public toEditUser(): void{
+    this.navCtrl.push(UserEditPage, {id:this.user._id});
+  }
 }

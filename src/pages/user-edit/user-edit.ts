@@ -9,14 +9,16 @@ import { UserProvider } from '../../providers/user/user';
 
 
 
-
 @IonicPage()
 @Component({
-  selector: 'page-user-create',
-  templateUrl: 'user-create.html',
+  selector: 'page-user-edit',
+  templateUrl: 'user-edit.html',
+  styles: ['user-create-scss']
 })
-export class UserCreatePage {
 
+export class UserEditPage {
+  
+  public myUser: User;
   public user : FormGroup;
   public errors: Array<any> = [];
   public errorMessage: string;
@@ -29,13 +31,26 @@ export class UserCreatePage {
     private formBuilder: FormBuilder
   ) {
     this.user = this.formBuilder.group({
+      _id:[],
       username: [],
       email: [],
       first_name: [],
       last_name: []
-    });
+   });
+  
+  
+    this.getUser(this.navParams.data.id);
   }
 
+
+  private getUser(id: string): void {
+    this.userProvider.getUser(id).subscribe(
+      (response: any)=>{
+        this.myUser = response.user;
+
+        }
+      );
+  }
   response(response: any): void{
     console.log(response);
     if(response.success === false){
@@ -43,14 +58,15 @@ export class UserCreatePage {
       this.errorMessage = response.error._message;
     }
 
-    if(response.success === true){
+    if(response.success === true){    console.log(response);
+
       this.navCtrl.push(UserPage, {id: response.user._id});
     }
   }
 
-  public createUser(): void{
-    this.userProvider.createUser(this.user.value).subscribe(
-      (response:any)=>{
+  public editUser(): void{console.log(456);
+    this.userProvider.editUser(this.user.value).subscribe(
+      (response:any)=>{console.log(789);
         this.response(response);
       }
     );
